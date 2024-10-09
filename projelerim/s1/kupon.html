@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kupon İle Ödeme Sayfası</title>
+    <link rel="stylesheet" href="kupon.css">
+    <link rel="icon" type="image/x-icon" href="u.ico">
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-card">
+            <h1>Kupon İle Ödeme Sayfası</h1>
+            <form id="payment-form">
+                <div class="form-group">
+                    <label for="card-name"></label>
+                    <input type="text" id="coupon" name="coupon" placeholder="Kupon kodu" required>
+                </div>
+                <button type="submit" class="btn">Ödemeyi Tamamla</button>
+                <p id="error-message" class="error-message"></p>
+                <div id="success-message" class="success-message"></div>
+            </form>
+        </div>
+    </div>
+    <script src="kupon.js"></script>
+</body>
+</html>

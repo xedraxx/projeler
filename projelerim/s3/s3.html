@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kripto Para Bilgisi</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="coin.ico">
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        .card-body {
+            background-color: #ffffff;
+            padding: 20px;
+        }
+        .crypto-list {
+            margin: 20px 0;
+        }
+        .crypto-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .crypto-item:last-child {
+            border-bottom: none;
+        }
+        .crypto-item strong {
+            color: #007bff;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .error {
+            color: #e74c3c;
+            font-weight: bold;
+            text-align: center;
+        }
+        .search-bar input {
+            border-radius: 20px;
+            border: 1px solid #ced4da;
+            padding: 10px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-coins"></i> Kripto Para Bilgisi
+            </div>
+            <div class="card-body">
+                <div class="search-bar">
+                    <input type="text" id="crypto-search" class="form-control" placeholder="Kripto para arayın (örn. Bitcoin, Ethereum)">
+                </div>
+                <div class="crypto-list" id="crypto-list">
+                    <!-- Kripto paralar burada gösterilecek -->
+                </div>
+                <div class="error" id="error-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets';
+        let cryptoData = [];
+
+        async function fetchCryptoData() {
+            try {
+                const response = await fetch(`${apiUrl}?vs_currency=usd`);
+                if (!response.ok) {
+                    throw new Error('Veri alınırken bir hata oluştu.');
+                }
+                const data = await response.json();
+                cryptoData = data;
+                displayCryptos(cryptoData);
+            } catch (error) {
+                document.getElementById('error-message').textContent = error.message;
+            }
+        }
+
+        function displayCryptos(cryptos) {
+            const cryptoList = document.getElementById('crypto-list');
+            cryptoList.innerHTML = '';
+            for (const crypto of cryptos) {
+                const cryptoElement = document.createElement('div');
+                cryptoElement.className = 'crypto-item';
+                cryptoElement.innerHTML = `<strong>${crypto.name} (${crypto.symbol.toUpperCase()}):</strong> $${crypto.current_price.toFixed(2)} USD`;
+                cryptoList.appendChild(cryptoElement);
+            }
+        }
+
+        function filterCryptos(query) {
+            const filteredCryptos = cryptoData.filter(crypto =>
+                crypto.name.toLowerCase().includes(query.toLowerCase()) ||
+                crypto.symbol.toLowerCase().includes(query.toLowerCase())
+            );
+            displayCryptos(filteredCryptos);
+        }
+
+        document.getElementById('crypto-search').addEventListener('input', (event) => {
+            filterCryptos(event.target.value);
+        });
+
+        // Başlangıçta kripto verilerini al
+        fetchCryptoData();
+    </script>
+</body>
+</html>

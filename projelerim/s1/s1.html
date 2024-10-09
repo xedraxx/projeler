@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>umut.com</title>
+    <link rel="stylesheet" href="s1.css">
+    <link rel="icon" type="image/x-icon" href="u.ico">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a class="logo">umut.com</a>
+                <ul class="nav-links">
+                    <li><a href="s1.html">Ana Sayfa</a></li>
+                    <li><a href="#products">Ürünler</a></li>
+                    <li><a href="#cart">Sepet</a></li>
+                    <li><a href="iletişim.html">İletişim</a></li>
+                    <li><a href="üyeol.html">Üye Ol</a></li>
+                </ul>
+                <div class="menu-toggle" id="menu-toggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products" class="container">
+            <h2>Ürünler</h2>
+            <div id="product-list" class="product-list"></div>
+        </section>
+
+        <section id="cart" class="container">
+            <h2>Sepet</h2>
+            <div id="cart-items" class="cart-items"></div>
+            <p>Total: <span id="total-price">0</span>₺</p>
+            <button onclick="window.location.href='kart.html';">satın al
+            </button>
+
+            <button onclick="window.location.href='kupon.html';">kupon ile öde
+            </button>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 umut.com e-ticaret sitesi</p>
+
+        <div class="footer-section">
+            <h3>İletişim Bilgileri</h3>
+            <p>Adres: İstanbul / esenyurt / E-5 Otoport / 7.kat / MegaCode</p>
+            <p>Telefon: 0850 346 2201</p>
+            <p>E-posta: <a href="mailto:[Şirket E-posta Adresi]">umutyusuf190@icloud.com</a></p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Takip Et</h3>
+            <ul class="social-media">
+                <li><a href="https://www.facebook.com/login/?locale=tr_TR">Facebook</a></li>
+                <li><a href="https://www.instagram.com/accounts/login/">Instagram</a></li>
+                <li><a href="https://x.com/login?mx=2">Twitter</a></li>
+                <li><a href="https://www.linkedin.com/signup?_l=tr&src=go-pa&trk=sem-ga_campid.19331681909_asid.168715020864_crid.698313460548_kw.linkedin_d.c_tid.kwd-148086543_n.g_mt.e_geo.1012782&mcid=7011503728440569856&cid=&gad_source=1&gclid=EAIaIQobChMIg7-8oLS6iAMViY5oCR1EdgQyEAAYASABEgIvbfD_BwE&gclsrc=aw.ds">LinkedIn</a></li>
+            </ul>
+        </div>
+
+    </footer>
+
+    <script src="s1.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uçuşum.com</title>
+    <link rel="stylesheet" href="anasayfa.css">
+    <link rel="icon" type="image/x-icon" href="u.ico">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Uçuşum.com</h1>
+            <nav>
+                <a href="ana sayfa.html">Ana Sayfa</a>
+                <a href="iletişim.html">İletişim</a>
+                <a href="Üyeol.html">Üye ol</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="search-section">
+            <h2>Uçuş Araması</h2>
+            <div class="search-form">
+                <select id="from" required>
+                    <option value="" disabled selected>Nereden</option>
+                </select>
+                <select id="to" required>
+                    <option value="" disabled selected>Nereye</option>
+                </select>
+                <input type="date" id="date" required>
+                <button onclick="searchFlights()">Ara</button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <h2>Sonuçlar</h2>
+            <div class="results" id="results">
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 umut.com e-ticaret sitesi</p>
+
+        <div class="footer-section">
+            <h3>İletişim Bilgileri</h3>
+            <p>Adres: İstanbul / esenyurt / E-5 Otoport / 7.kat / MegaCode</p>
+            <p>Telefon: 0850 346 2201</p>
+            <p>E-posta: <a href="mailto:[Şirket E-posta Adresi]">umutyusuf190@icloud.com</a></p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Takip Et</h3>
+            <ul class="social-media">
+                <li><a href="https://www.facebook.com/login/?locale=tr_TR">Facebook</a></li>
+                <li><a href="https://www.instagram.com/accounts/login/">Instagram</a></li>
+                <li><a href="https://x.com/login?mx=2">Twitter</a></li>
+                <li><a href="https://www.linkedin.com/signup?_l=tr&src=go-pa&trk=sem-ga_campid.19331681909_asid.168715020864_crid.698313460548_kw.linkedin_d.c_tid.kwd-148086543_n.g_mt.e_geo.1012782&mcid=7011503728440569856&cid=&gad_source=1&gclid=EAIaIQobChMIg7-8oLS6iAMViY5oCR1EdgQyEAAYASABEgIvbfD_BwE&gclsrc=aw.ds">LinkedIn</a></li>
+            </ul>
+        </div>
+
+    </footer>
+
+    <script src="anasayfa.js"></script>
+</body>
+</html>
